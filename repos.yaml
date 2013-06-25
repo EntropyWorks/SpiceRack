@@ -1,0 +1,56 @@
+# States broken out to be used for environments
+states:
+  base:
+    uri: 
+    release: master
+    name: /srv/salt/salt/base
+  openstack_production:
+    uri: 
+    release: master
+    names: 
+      - /srv/salt/production/openstack
+  openstack_devlopment:
+    uri: 
+    release: devlopment
+    names: 
+      - /srv/salt/development/openstack
+  users:
+    uri: 
+    release: master
+    names: 
+      - /srv/salt/production/ufw
+      - /srv/salt/development/ufw
+  salt-minion:
+    uri: 
+    release: master
+    names: 
+      - /srv/salt/production/salt-minion
+      - /srv/salt/development/salt-minion
+  ufw:
+    uri: 
+    release: master
+    names: 
+      - /srv/salt/production/ufw
+      - /srv/salt/development/ufw
+
+# Pillar's broken out to use environments
+pillar:
+  base:
+    uri: 
+    release: master
+    name: /srv/salt/pillari/base
+  production:
+    uri: 
+    release: master
+    name: /srv/salt/pillar/production
+  development:
+    uri: 
+    release: development
+    name: /srv/salt/pillar/development
+
+# Unsure how I want to split up environments yet. 
+# Potential could be used to genrate the /etc/salt/master
+environments:
+  - production
+  - development
+
